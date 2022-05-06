@@ -42,87 +42,110 @@
     <!-- end presentation banner -->
 
     <!-- individual result form + well done card (toggle) -->
-    <!-- irf -->
-    <div class="container irf my-4" id="irfSection">
-        <h2 class="display-6 fw-bold text-center mb-5">Enter your result 💯</h2>
-        <form id="irf">
-            <p class="text-danger text-center fw-bold" id="fillForm"></p>
-            <div class="input-group mb-3">
-                <span class="input-group-text yellow" id="basic-addon1"><i
-                        class="fa-solid fa-face-grin-wink"></i></span>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                    aria-describedby="basic-addon1" required id="givenName">
-            </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text yellow"><i class="fa-solid fa-square-poll-vertical"></i></span>
-                <!-- form validation with JS -->
-                <input type="text" class="form-control" placeholder="Result" aria-label="Result" required id="givenResult">
-            </div>
-            <div class="input-group mb-3 justify-content-center">
-                <button type="submit" class="btn btn-lg yellow fw-bold" id="submitBtn">send my result <i
-                        class="fa-solid fa-check"></i></button>
-            </div>
-        </form>
-    </div>
-    <!-- end individual result form -->
+    <div id="hideChallenge" class="">
+        <!-- irf -->
+        <div class="container irf my-4" id="irfSection">
+            <h2 class="display-6 fw-bold text-center mb-5">Enter your result 💯</h2>
+            <p class="badge p-3 rounded-pill bg-danger hide" id="badgeUsers">Current Users: <span
+                    id="currentUsers"></span>/10</p>
+            <form id="irf">
+                <p class="text-danger text-center fw-bold" id="fillForm"></p>
+                <div class="input-group mb-3">
+                    <span class="input-group-text yellow" id="basic-addon1"><i
+                            class="fa-solid fa-face-grin-wink"></i></span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                        aria-describedby="basic-addon1" required id="givenName">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text yellow"><i class="fa-solid fa-square-poll-vertical"></i></span>
+                    <!-- form validation with JS -->
+                    <input type="text" class="form-control" placeholder="Result" aria-label="Result" required
+                        id="givenResult">
+                </div>
+                <div class="input-group mb-3 justify-content-center">
+                    <button type="submit" class="btn btn-lg yellow fw-bold" id="submitBtn">send my result <i
+                            class="fa-solid fa-check"></i></button>
+                </div>
+            </form>
+        </div>
+        <!-- end individual result form -->
 
-    <!-- well done card -->
-    <div class="container wd hide" id="wdSection">
-        <div class="card my-5 p-3 text-center bg-dark text-light">
-            <div class="card-body">
-                <h5 class="display-5">Well done!</h5>
-                <h5 class="display-6">
-                    <!-- add username here -->
-                    <span id="putName"></span>, your result is
-                    <!-- add result here -->
-                    <span id="putResult"></span>!
-                </h5>
-                <p class="lead text-muted fw-bold">The results of the challenge shall be announced soon. </p>
-                <p class="lead">Good luck 🍀!</p>
+        <!-- well done card -->
+        <div class="container wd hide" id="wdSection">
+            <div class="card my-5 p-3 text-center bg-dark text-light">
+                <div class="card-body">
+                    <h5 class="display-5">Well done!</h5>
+                    <h5 class="display-6">
+                        <!-- add username here -->
+                        <span id="putName"></span>, your result is
+                        <!-- add result here -->
+                        <span id="putResult"></span>!
+                    </h5>
+                    <p class="lead text-muted fw-bold">The results of the challenge shall be announced soon. </p>
+                    <p class="lead">Good luck 🍀!</p>
 
-                <!-- TODO: toggle back button (page reload) -->
-                <a href="#" class="btn btn-success" id="backBtn">back to challenge page</a>
+                    <!-- TODO: toggle back button (page reload) -->
+                    <a href="#" class="btn btn-success" id="backBtn">back to challenge page</a>
+                </div>
             </div>
         </div>
+        <!-- end well done card -->
     </div>
-    <!-- end well done card -->
     <!-- end individual result form + well done card -->
 
-    <!-- limit contestants modal -->
-    <!-- end limit contestants modal -->
-
     <!-- results -->
-    <!-- challenge over card -->
-    <!-- end challenge over card -->
+    <div id="endChallenge" class="container-lg hide">
 
-    <!-- results table -->
-    <div class="container-lg hide" id="resultsTable">
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Username</th>
-            <th scope="col">Result</th>
-          </tr>
-        </thead>
-        <tbody id="tableBody">
-            <!-- append row for each player with JS-->
-          <tr>
-            <th scope="row" id="playerRank"></th>
-            <td id="playerName"></td>
-            <td id="playerResult"></td>
-          </tr>
-        </tbody>
-      </table>
+        <!-- challenge over card -->
+        <div class="container" id="challengeOver">
+            <div class="card my-5 p-3 text-center bg-dark text-light">
+                <div class="card-body">
+                    <h5 class="display-5">This is it!</h5>
+                    <h5 class="display-6"> Well done
+                        <!-- add username here -->
+                        <span id="putNameLast"></span>, your result is
+                        <!-- add result here -->
+                        <span id="putResultLast"></span>!
+                    </h5>
+                    <p class="lead text-muted fw-bold">The results of the challenge are available below.</p>
+                    <p class="lead">Fighting 👊🤞!</p>
+
+                    <!-- TODO: toggle back button (page reload) -->
+                    <a href="" class="btn yellow" id="reloadAll">back to challenge page</a>
+                </div>
+            </div>
+        </div>
+        <!-- end challenge over card -->
+
+        <!-- results table -->
+        <div class="container-lg" id="resultsTable">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Result</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- append row for each player with JS-->
+                    <tr>
+                        <th scope="row" id="playerRank"></th>
+                        <td id="playerName"></td>
+                        <td id="playerResult"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- end results table -->
     </div>
-    <!-- end results table -->
     <!-- end results  -->
 
     <!-- section divider -->
     <div class="b-example-divider"></div>
     <!-- end section divider -->
 
-    <!-- share results on twitter -->
+    <!-- share results on social media -->
     <div class="px-4 py-5 my-5 text-center hide" id="shareResult">
         <img class="d-block mx-auto mb-4" src="./assets/logo.png" alt="" width="72" height="57">
         <h1 class="display-5 fw-bold">You are now a challenge hero!</h1>
@@ -132,7 +155,7 @@
             <button type="button" class="btn btn-dark shadow-lg px-4"><i class="fa-brands fa-twitter"></i></button>
         </div>
     </div>
-    <!-- end share results on twitter -->
+    <!-- end share results on social media -->
 
     <!-- footer -->
     <div class="container">
