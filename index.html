@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my challenge app</title>
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- css -->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <!-- presentation banner -->
+    <div class="px-4 pt-5 my-5 text-center border-bottom presentation">
+        <h1 class="display-4 fw-bold">Become a hero with mychallengeapp 💪</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Chocolate muffin I love I love jelly-o. Topping I love cake tootsie roll chupa chups.
+                Liquorice gingerbread jelly beans lemon drops biscuit gummi bears brownie gingerbread. Cotton candy
+                shortbread pudding macaroon I love.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                <a href="#irf" class="btn yellow btn-lg px-4 me-sm-3">start challenge</a>
+                <a href="#" class="btn btn-outline-dark btn-lg px-4"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="overflow-hidden" style="max-height: 30vh;">
+            <!-- TODO: change image -->
+            <div class="container px-5">
+                <img src="./assets/banner_img.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
+                    loading="lazy" width="700" height="500">
+            </div>
+        </div>
+    </div>
+    <!-- end presentation banner -->
+
+    <!-- individual result form + well done card (toggle) -->
+    <!-- irf -->
+    <div class="container irf my-4" id="irfSection">
+        <h2 class="display-6 fw-bold text-center mb-5">Enter your result 💯</h2>
+        <form id="irf">
+            <p class="text-danger text-center fw-bold" id="fillForm"></p>
+            <div class="input-group mb-3">
+                <span class="input-group-text yellow" id="basic-addon1"><i
+                        class="fa-solid fa-face-grin-wink"></i></span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                    aria-describedby="basic-addon1" required id="givenName">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text yellow"><i class="fa-solid fa-square-poll-vertical"></i></span>
+                <!-- form validation with JS -->
+                <input type="text" class="form-control" placeholder="Result" aria-label="Result" required id="givenResult">
+            </div>
+            <div class="input-group mb-3 justify-content-center">
+                <button type="submit" class="btn btn-lg yellow fw-bold" id="submitBtn">send my result <i
+                        class="fa-solid fa-check"></i></button>
+            </div>
+        </form>
+    </div>
+    <!-- end individual result form -->
+
+    <!-- well done card -->
+    <div class="container wd hide" id="wdSection">
+        <div class="card my-5 p-3 text-center bg-dark text-light">
+            <div class="card-body">
+                <h5 class="display-5">Well done!</h5>
+                <h5 class="display-6">
+                    <!-- add username here -->
+                    <span id="putName"></span>, your result is
+                    <!-- add result here -->
+                    <span id="putResult"></span>!
+                </h5>
+                <p class="lead text-muted fw-bold">The results of the challenge shall be announced soon. </p>
+                <p class="lead">Good luck 🍀!</p>
+
+                <!-- TODO: toggle back button (page reload) -->
+                <a href="#" class="btn btn-success" id="backBtn">back to challenge page</a>
+            </div>
+        </div>
+    </div>
+    <!-- end well done card -->
+    <!-- end individual result form + well done card -->
+
+    <!-- limit contestants modal -->
+    <!-- end limit contestants modal -->
+
+    <!-- results -->
+    <!-- challenge over card -->
+    <!-- end challenge over card -->
+
+    <!-- results table -->
+    <div class="container-lg hide" id="resultsTable">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Username</th>
+            <th scope="col">Result</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- append row for each player with JS-->
+          <tr>
+            <th scope="row" id="playerRank"></th>
+            <td id="playerName"></td>
+            <td id="playerResult"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- end results table -->
+    <!-- end results  -->
+
+    <!-- section divider -->
+    <div class="b-example-divider"></div>
+    <!-- end section divider -->
+
+    <!-- share results on twitter -->
+    <div class="px-4 py-5 my-5 text-center hide" id="shareResult">
+        <img class="d-block mx-auto mb-4" src="./assets/logo.png" alt="" width="72" height="57">
+        <h1 class="display-5 fw-bold">You are now a challenge hero!</h1>
+        <div class="col-lg-6 mx-auto">
+
+            <p class="lead">Share your result</p>
+            <button type="button" class="btn btn-dark shadow-lg px-4"><i class="fa-brands fa-twitter"></i></button>
+        </div>
+    </div>
+    <!-- end share results on twitter -->
+
+    <!-- footer -->
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <img class="img-fluid" src="./assets/logo2_small.png" alt="mychallengeapp icon">
+                </a>
+                <span class="fw-bold">© 2022 mychallengeapp, Inc</span>
+            </div>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-dark" href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                <li class="ms-3"><a class="text-dark" href="#"><i class="fa-brands fa-discord"></i></a></li>
+            </ul>
+        </footer>
+    </div>
+    <!-- end footer -->
+
+    <!-- bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <script src="./js/script.js"></script>
+    <!-- TODO: REMOVE TEST SCRIPTS -->
+    <!-- <script src="./js/userObject.js"></script> -->
+</body>
+
+</html>

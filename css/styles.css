@@ -1,0 +1,56 @@
+/* GLOBAL STYLESHEET */
+/* Rubik reg for titles and Noto Sans for the rest */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&family=Rubik&display=swap');
+
+:root {
+    --blackgrey: #323330;
+    --yellow: #f0db4f;
+    --bootblue: #0dcaf0;
+}
+
+.yellow {
+    background-color: var(--yellow);
+}
+
+* {
+    font-family: 'Noto Sans', sans-serif;
+    /* depends on browsers */
+    scrollbar-color: var(--yellow) var(--blackgrey);
+    -webkit-scrollbar: var(--yellow) var(--blackgrey);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Rubik', sans-serif;
+}
+
+.b-example-divider {
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-top-width: medium;
+    border-right-width: medium;
+    border-bottom-width: medium;
+    border-left-width: medium;
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+/* toggle section */
+.hide {
+    display: none
+}
+
+/* end toggle section */
+
+/* well done card */
+.wd .card {
+    width: 70%;
+    margin: 0 auto;
+}
+
+/* end well done card */
