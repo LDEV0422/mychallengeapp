@@ -3,11 +3,11 @@
 // submit button
 const sendBtn = document.querySelector('#submitBtn');
 // array of all users
-var allUsers = [];
+let allUsers = [];
 
 // error notifs
-var fillForm = document.querySelector('#fillForm');
-var fillNumber = document.querySelector('#fillNumber');
+let fillForm = document.querySelector('#fillForm');
+let fillNumber = document.querySelector('#fillNumber');
 
 // create function to store data with lS
 function storeDataLS() {
@@ -48,8 +48,8 @@ sendBtn.onclick = (e) => {
     e.preventDefault();
 
     // get input values
-    var givenName = document.querySelector('#givenName').value;
-    var givenResultStr = document.querySelector('#givenResult').value;
+    let givenName = document.querySelector('#givenName').value;
+    let givenResultStr = document.querySelector('#givenResult').value;
     //console.log(givenName, givenResultStr);
 
 
@@ -58,7 +58,10 @@ sendBtn.onclick = (e) => {
     if (givenName !== "" && givenResultStr !== "") {
 
         // check that both fields are filled and result is an int
-        if (givenResultStr !== "" && givenResultStr !== "" && /^[0-9]+$/.test(givenResultStr)) {
+        if (givenName !== "" && givenResultStr !== "" && /^[0-9]+$/.test(givenResultStr)) {
+
+            // regex
+            // 
 
             // HANDLE SECTION DISPLAY UNDER 10 USERS
             if (allUsers.length < 10) {
@@ -73,14 +76,14 @@ sendBtn.onclick = (e) => {
                 // create newUser object to push in allUsers array
                 var givenResult = parseInt(givenResultStr);
                 var newUser = {
-                    "username": givenName,
-                    "result": givenResult
+                    username: givenName,
+                    result: givenResult
                 };
                 //console.log(newUser);
 
                 // add newUser to allUsers array
                 allUsers.push(newUser);
-                //console.log(allUsers);
+                console.log(allUsers);
 
                 // store allUsers + newUser in LS
                 storeDataLS();
