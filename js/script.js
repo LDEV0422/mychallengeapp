@@ -9,7 +9,6 @@ let allUsers = [];
 let fillForm = document.querySelector('#fillForm');
 let fillNumber = document.querySelector('#fillNumber');
 
-// create function to store data with lS
 function storeDataLS() {
     // localStorage only accepts strings so we need to represent the object as a string (= serialization)
     var allUsers_serialized = JSON.stringify(allUsers);
@@ -19,30 +18,6 @@ function storeDataLS() {
     localStorage.setItem("allUsers", allUsers_serialized);
 }
 
-// TODO: function to create table rows
-// function createRow() {
-//     var tableBody = document.querySelector('#tableBody');
-
-//     var playerTR = document.createElement('tr');
-//     tableBody.appendChild(playerTR);
-
-//     var playerRank = document.createElement('th');
-//     playerTR.append(playerRank);
-//     playerRank.setAttribute("scope", "row");
-//     playerRank.classList.add('playerRank');
-
-//     var playerName = document.createElement('th');
-//     playerTR.append(playerName);
-//     playerName.classList.add('playerName');
-
-
-//     var playerResult = document.createElement('th');
-//     playerTR.append(playerResult);
-//     playerResult.classList.add('playerResult');
-
-// }
-
-
 sendBtn.onclick = (e) => {
     // prevent page reload on click (to show allow errors notifs and handle events)
     e.preventDefault();
@@ -50,6 +25,8 @@ sendBtn.onclick = (e) => {
     // get input values
     let givenName = document.querySelector('#givenName').value;
     let givenResultStr = document.querySelector('#givenResult').value;
+    let givenResult = Number(givenResultStr.replace(",", "."));
+
     //console.log(givenName, givenResultStr);
 
 
@@ -58,10 +35,10 @@ sendBtn.onclick = (e) => {
     if (givenName !== "" && givenResultStr !== "") {
 
         // check that both fields are filled and result is an int
-        if (givenName !== "" && givenResultStr !== "" && /^[0-9]+$/.test(givenResultStr)) {
+        if (givenName !== "" && givenResultStr !== "" && !isNaN(givenResult)) {
 
             // regex
-            // 
+            // /^[0-9]+$/.test(givenResultStr)
 
             // HANDLE SECTION DISPLAY UNDER 10 USERS
             if (allUsers.length < 10) {
@@ -74,7 +51,7 @@ sendBtn.onclick = (e) => {
                 wdSection.classList.remove("hide");
 
                 // create newUser object to push in allUsers array
-                var givenResult = parseInt(givenResultStr);
+                // var givenResult = parseInt(givenResultStr);
                 var newUser = {
                     username: givenName,
                     result: givenResult
@@ -177,6 +154,8 @@ sendBtn.onclick = (e) => {
                 // highest result in all
                 var winner = Math.max.apply(null, userResults);
                 //console.log(winner);
+
+                
 
                 // create table rows with style depending on result
                 for (let k = 0; k < allUsers_deserial.length; k++) {
@@ -296,3 +275,26 @@ sendBtn.onclick = (e) => {
 }
 
 
+// TODO: function to create table rows
+// function createRow() {
+//     var tableBody = document.querySelector('#tableBody');
+
+//     var playerTR = document.createElement('tr');
+//     tableBody.appendChild(playerTR);
+
+//     var playerRank = document.createElement('th');
+//     playerTR.append(playerRank);
+//     playerRank.setAttribute("scope", "row");
+//     playerRank.classList.add('playerRank');
+
+//     var playerName = document.createElement('th');
+//     playerTR.append(playerName);
+//     playerName.classList.add('playerName');
+
+
+//     var playerResult = document.createElement('th');
+//     playerTR.append(playerResult);
+//     playerResult.classList.add('playerResult');
+
+// }
+// console.log(createRow());
