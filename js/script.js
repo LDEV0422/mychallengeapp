@@ -25,6 +25,7 @@ sendBtn.onclick = (e) => {
     // get input values
     let givenName = document.querySelector('#givenName').value;
     let givenResultStr = document.querySelector('#givenResult').value;
+    // int or float number with .
     let givenResult = Number(givenResultStr.replace(",", "."));
 
     //console.log(givenName, givenResultStr);
@@ -34,11 +35,8 @@ sendBtn.onclick = (e) => {
     // check that both fields are filled
     if (givenName !== "" && givenResultStr !== "") {
 
-        // check that both fields are filled and result is an int
+        // check that both fields are filled and result is a number
         if (givenName !== "" && givenResultStr !== "" && !isNaN(givenResult)) {
-
-            // regex
-            // /^[0-9]+$/.test(givenResultStr)
 
             // HANDLE SECTION DISPLAY UNDER 10 USERS
             if (allUsers.length < 10) {
