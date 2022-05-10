@@ -157,8 +157,8 @@ sendBtn.onclick = (e) => {
 
                 // calculate average result with results from allUsers
                 var userResults = [];
-                for (let i = 0; i < allUsers_deserial.length; i++) {
-                    userResults.push(allUsers_deserial[i].result);
+                for (let j = 0; j < allUsers_deserial.length; j++) {
+                    userResults.push(allUsers_deserial[j].result);
                 }
                 var sumResults = userResults.reduce(function (total, num) {
                     return total + num;
@@ -176,10 +176,10 @@ sendBtn.onclick = (e) => {
                 console.log(winner);
 
                 // create table rows with style depending on result
-                for (let i = 0; i < allUsers_deserial.length; i++) {
+                for (let k = 0; k < allUsers_deserial.length; k++) {
 
-                    var pN = allUsers[i].username;
-                    var pR = allUsers[i].result;
+                    var pN = allUsers[k].username;
+                    var pR = allUsers[k].result;
 
                     // TODO: function to create table rows
 
