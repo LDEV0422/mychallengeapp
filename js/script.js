@@ -13,7 +13,7 @@ var fillNumber = document.querySelector('#fillNumber');
 function storeDataLS() {
     // localStorage only accepts strings so we need to represent the object as a string (= serialization)
     var allUsers_serialized = JSON.stringify(allUsers);
-    console.log(allUsers_serialized);
+    //console.log(allUsers_serialized);
 
     // store allUsers_serialized in localStorage
     localStorage.setItem("allUsers", allUsers_serialized);
@@ -80,7 +80,7 @@ sendBtn.onclick = (e) => {
 
                 // add newUser to allUsers array
                 allUsers.push(newUser);
-                console.log(allUsers);
+                //console.log(allUsers);
 
                 // store allUsers + newUser in LS
                 storeDataLS();
@@ -173,7 +173,7 @@ sendBtn.onclick = (e) => {
 
                 // highest result in all
                 var winner = Math.max.apply(null, userResults);
-                console.log(winner);
+                //console.log(winner);
 
                 // create table rows with style depending on result
                 for (let k = 0; k < allUsers_deserial.length; k++) {
@@ -242,7 +242,6 @@ sendBtn.onclick = (e) => {
 
                         var playerTR = document.createElement('tr');
                         tableBody.appendChild(playerTR);
-                        // red background
                         playerTR.classList.add('table-danger');
 
                         var playerRank = document.createElement('th');
@@ -268,6 +267,8 @@ sendBtn.onclick = (e) => {
                 // BACK TO START CHALLENGE PAGE = RESTART
                 const reloadAllBtn = document.querySelector('#reloadAllBtn');
                 reloadAllBtn.onclick = () => {
+                    // reload page
+                    location.reload();
                     // empty form
                     document.getElementById('irf').reset();
 
@@ -290,3 +291,5 @@ sendBtn.onclick = (e) => {
     }
 
 }
+
+
