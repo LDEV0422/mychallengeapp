@@ -153,8 +153,6 @@ sendBtn.onclick = (e) => {
                 var winner = Math.max.apply(null, userResults);
                 //console.log(winner);
 
-                
-
                 // create table rows with style depending on result
                 for (let k = 0; k < allUsers_deserial.length; k++) {
 
