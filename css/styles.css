@@ -41,13 +41,13 @@ h6 {
 /* end well done card */
 
 /* scroll bar */
-::--webkit-scrollbar{
+::-webkit-scrollbar{
     width: 0.60rem;
     background-color: var(--yellow);
     border-radius: .5rem
 }
 
-::--webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb{
     background-color: var(--black);
     border-radius: .5rem
 }
