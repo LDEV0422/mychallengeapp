@@ -39,15 +39,3 @@ h6 {
     margin: 0 auto;
 }
 /* end well done card */
-
-/* scroll bar */
-::-webkit-scrollbar{
-    width: 0.60rem;
-    background-color: var(--yellow);
-    border-radius: .5rem
-}
-
-::-webkit-scrollbar-thumb{
-    background-color: var(--blackgrey);
-    border-radius: .5rem
-}
